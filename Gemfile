@@ -17,7 +17,10 @@ gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
+gem 'activeadmin', github: 'activeadmin'
+gem 'annotate'
 group :development do
+
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
