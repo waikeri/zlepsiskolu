@@ -14,7 +14,7 @@
 #
 
 class Idea < ActiveRecord::Base
-  validates :content, :title, :first_name, :last_name, :timeout_at, presence: true
+  validates :content, :title, :first_name, :last_name, presence: true
 
   has_many :votes
 
