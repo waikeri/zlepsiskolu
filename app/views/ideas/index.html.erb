@@ -24,7 +24,7 @@
                 </p>
                 <% unless cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
                   <p>
-                  <%= link_to 'HLASUJ', new_idea_vote_path(idea) %>
+                    <%= render 'votes/form', idea: idea %>
                   </p>
                 <% end %>
               </div>

@@ -1,4 +1,4 @@
-<%= simple_form_for([@idea,@vote]) do |f| %>
+<%= simple_form_for([idea, idea.votes.new]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -12,7 +12,7 @@
 <% end %>
 
 
-<%= simple_form_for([@idea,@vote]) do |f| %>
+<%= simple_form_for([idea, idea.votes.new]) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
