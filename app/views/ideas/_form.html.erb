@@ -2,15 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :user_id %>
-    <%= f.input :content %>
     <%= f.input :title %>
+    <%= f.input :content %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :timeout_at %>
   </div>
 
+  <p>Čas na hlasování je jeden měsíc.</p>
+
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn" %>
   </div>
 <% end %>
