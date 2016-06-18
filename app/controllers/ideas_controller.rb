@@ -4,6 +4,9 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
+    if cookies[:voted_ideas].nil?
+      cookies[:voted_ideas] = ""
+    end
     @ideas = Idea.all
   end
 
