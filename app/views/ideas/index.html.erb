@@ -19,8 +19,14 @@
             </div>
             <div id="collapse<%= idea.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= idea.id %>">
               <div class="panel-body">
-                <%= idea.content %>
-
+                <p>
+                  <%= idea.content %>
+                </p>
+                <% unless cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
+                  <p>
+                  <%= link_to 'HLASUJ', new_idea_vote_path(idea) %>
+                  </p>
+                <% end %>
               </div>
             </div>
           </div>

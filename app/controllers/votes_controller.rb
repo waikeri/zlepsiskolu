@@ -1,8 +1,14 @@
 class VotesController < InheritedResources::Base
 
   def new
-    @idea = find_idea
-    @vote = @idea.votes.new
+    if cookies[:voted_ideas].split(',').include?(params[:idea_id])
+      respond_to do |format|
+        format.html { redirect_to root_url, alert: 'You have already voted.' }
+      end
+    else
+      @idea = find_idea
+      @vote = @idea.votes.new
+    end
   end
 
   def index
@@ -32,6 +38,12 @@ class VotesController < InheritedResources::Base
 
     respond_to do |format|
       if @vote.save
+        puts cookies[:voted_ideas]
+        if cookies[:voted_ideas].nil?
+          cookies[:voted_ideas] = @vote.idea.id
+        else
+          cookies[:voted_ideas] = cookies[:voted_ideas] + "," + @vote.idea.id.to_s
+        end
         format.html { redirect_to root_url, notice: 'vote was successfully created.' }
       else
         format.html { render :new }
