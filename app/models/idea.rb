@@ -18,4 +18,11 @@ class Idea < ActiveRecord::Base
 
   has_many :votes
 
+  def up_votes
+    self.votes.where(state: true)
+  end
+
+  def down_votes
+    self.votes.where(state: false)
+  end
 end

@@ -1,11 +1,26 @@
-<%= simple_form_for(@vote) do |f| %>
+<%= simple_form_for([@idea,@vote]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :idea_id %>
+    <%= f.hidden_field :idea_id %>
+    <%= f.hidden_field :state, value: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "UPVOTE" %>
   </div>
+<% end %>
+
+
+<%= simple_form_for([@idea,@vote]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.hidden_field :idea_id %>
+      <%= f.hidden_field :state, value: false %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "DOWNVOTE" %>
+    </div>
 <% end %>

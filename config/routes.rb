@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  resources :votes
-  resources :ideas
+  resources :ideas do
+    resources :votes
+  end
   root to: 'ideas#index'
 end
