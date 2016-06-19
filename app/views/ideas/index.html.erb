@@ -6,52 +6,28 @@
       <span id="carousel-next"><i class="glyphicon glyphicon-triangle-right"></i></span>
 
       <div class="owl-carousel">
-        <div class="item item-add col-xs-12">
-          <div class="centerwrapper">
-            <div class="row">
-              <div class="col-xs-12">
-                <span><i class="glyphicon glyphicon-plus"></i></span>
+        <%= link_to new_idea_path do %>
+          <div class="item item-add col-xs-12">
+            <div class="centerwrapper">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span><i class="glyphicon glyphicon-plus"></i></span>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <button class="btn btn-lg" style="text-transform: uppercase; border-radius: 0;">Vložit nápad k hlasování</button>
+              <div class="row">
+                <div class="col-xs-12">
+                  <button class="btn btn-lg" style="text-transform: uppercase; border-radius: 0;">Vložit nápad k hlasování</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>art green juice bushwick brooklyn pug</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>art green juice bushwick</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>art green juice brooklyn pug</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>art green juice bushwick brooklyn pug</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>green juice bushwick brooklyn</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>bushwick brooklyn pug</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>juice bushwick brooklyn pug</h4>
-        </div>
-        <div class="item col-xs-12 ">
-          <h3>Škola řeší:</h3>
-          <h4>art juice brooklyn pug</h4>
-        </div>
+        <% end %>
+        <% @ideas.each do |idea| %>
+          <div class="item col-xs-12 ">
+            <h3><%= idea.title %></h3>
+            <h4><%= idea.content %></h4>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

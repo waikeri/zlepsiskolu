@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require jQuery.fontFlex
 //= require owl.carousel.min
-//= require main
-//= require_tree .
+//= require jQuery.fontFlex
+//= require zmain
