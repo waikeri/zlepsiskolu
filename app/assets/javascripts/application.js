@@ -15,4 +15,4 @@
 //= require bootstrap-sprockets
 //= require owl.carousel.min
 //= require jQuery.fontFlex
-//= require zmain
+//= require main

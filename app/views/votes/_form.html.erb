@@ -1,4 +1,6 @@
-<%= simple_form_for([idea, idea.votes.new]) do |f| %>
+<h3 class="downvote">
+  <%= simple_form_for([idea, idea.votes.new]) do |f| %>
+
     <%= f.error_notification %>
 
     <div class="form-inputs">
@@ -6,10 +8,12 @@
       <%= f.hidden_field :state, value: false %>
     </div>
 
-    <span style="font-size: 1.5em; line-height: 1.2;" class="downvote">
       <i class="glyphicon glyphicon-thumbs-down"></i>
-    </span>
 <% end %>
+
+</h3>
+
+<h3 class="upvote">
 
 <%= simple_form_for([idea, idea.votes.new]) do |f| %>
     <%= f.error_notification %>
@@ -19,7 +23,8 @@
       <%= f.hidden_field :state, value: true %>
     </div>
 
-    <span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;" class="upvote">
+
       <i class="glyphicon glyphicon-thumbs-up"></i>
-    </span>
+
 <% end %>
+</h3>

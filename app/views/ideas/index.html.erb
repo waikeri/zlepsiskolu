@@ -10,6 +10,8 @@
     </div>
   </div>
 
+  <div class="break-line"></div>
+
   <section id="voting">
     <div class="row">
       <div style="padding: 10px 35px 10px 35px;">
@@ -18,8 +20,8 @@
     </div>
     <div class="row">
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <% @ideas.each_with_index do |idea, index| %>
-              <div class="panel panel-default vote-top <% cookies[:voted_ideas].split(',').include?(idea.id.to_s) ? "vote-disabled" : "" %>">
+          <% Idea.active.all.each_with_index do |idea, index| %>
+              <div class="panel panel-default <%= cookies[:voted_ideas].split(',').include?(idea.id.to_s) ? "vote-disabled" : "" %>">
                 <a role="button" data-toggle="collapse" data-target="#collapse<%= idea.id %>" href="#collapse<%= idea.id %>">
                   <div class="panel-heading" role="tab" id="heading<%= idea.id %>">
                     <% if cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
@@ -56,8 +58,8 @@
 
     <div class="row">
       <div class="panel-group" id="sentaccordion" role="tablist" aria-multiselectable="true">
-        <% @ideas.each_with_index do |idea, index| %>
-            <div class="panel panel-default <% cookies[:voted_ideas].split(',').include?(idea.id.to_s) ? "vote-disabled" : "" %>">
+        <% (Idea.all - Idea.active.all).each_with_index do |idea, index| %>
+            <div class="panel panel-default vote-disabled">
               <a role="button" data-toggle="collapse" data-target="#sent<%=  idea.id %>" href="#sent<%=  idea.id %>">
                 <div class="panel-heading" role="tab" id="sentheading<%=  idea.id %>">
                   <h3 class="downvote"><%= idea.down_votes.count %></h3>

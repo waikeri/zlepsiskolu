@@ -29,9 +29,8 @@ $(document).ready(function () {
     })
     $('.owl-carousel .item h4').fontFlex(18, 36, 50);
 
-    $('#voting .panel .upvote').click(function(e){
-        alert("hai");
+    $('#voting .panel:not(.vote-disabled) .upvote, #voting .panel:not(.vote-disabled) .downvote').click(function(e){
         e.stopPropagation();
-        $(this).closest('form').submit();
+        $(this).find('form').submit();
     });
 });
