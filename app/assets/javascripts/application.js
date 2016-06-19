@@ -16,5 +16,4 @@
 //= require jQuery.fontFlex
 //= require owl.carousel.min
 //= require main
-//= require active_admin
 //= require_tree .
