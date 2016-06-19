@@ -45,16 +45,22 @@
                     <%= idea.title %>
                 </h4>
                 <div class="pull-right" style="position: absolute; top:0; right: 15px; height: 100%; display: flex; align-items: center">
-                  <span style="font-size: 1.5em; line-height: 1.2;">
-                    16<i class="glyphicon glyphicon-circle-arrow-down"></i>
-                  </span>
-                  <span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;">
-                    32<i class="glyphicon glyphicon-circle-arrow-up"></i>
-                  </span>
-                  UP:
-                  <%= idea.up_votes.count %>
-                  DOWN:
-                  <%= idea.down_votes.count %>
+
+                    <% if cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
+                      <span style="font-size: 1.5em; line-height: 1.2;">
+                        <%= idea.down_votes.count %>
+                            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                      </span>
+                      <span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;">
+                        <%= idea.up_votes.count %>
+                        <i class="glyphicon glyphicon-circle-arrow-up"></i>
+                      </span>
+                    <% else %>
+                      <p>
+                        <%= render 'votes/form', idea: idea %>
+                      </p>
+                    <% end %>
+
                   Čas do konce: <%= idea.timeout_at %>
                 </div>
               </div>
@@ -64,11 +70,6 @@
                 <p>
                   <%= idea.content %>
                 </p>
-                <% unless cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
-                  <p>
-                    <%= render 'votes/form', idea: idea %>
-                  </p>
-                <% end %>
               </div>
             </div>
           </div>
