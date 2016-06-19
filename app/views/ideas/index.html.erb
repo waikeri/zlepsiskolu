@@ -43,26 +43,28 @@
               <div class="panel-heading" role="tab" id="heading<%= idea.id %>">
                 <h4 class="panel-title">
                     <%= idea.title %>
+
+                  <div class="pull-right" style="position: absolute; top:0; right: 15px; height: 100%; display: flex; align-items: center">
+
+                      <% if cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
+                        <span style="font-size: 1.5em; line-height: 1.2;">
+                          <%= idea.down_votes.count %>
+                              <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                        </span>
+                        <span style="font-size: 1.3em; line-height: 1.1;margin-left: 10px;">
+                          <%= idea.up_votes.count %>
+                          <i class="glyphicon glyphicon-circle-arrow-up"></i>
+                        </span>
+                      <% else %>
+                        <p>
+                          <%= render 'votes/form', idea: idea %>
+                        </p>
+                      <% end %>
+                      <% if idea.timeout_at.present? %>
+                        &nbsp; do <%= idea.timeout_at.strftime('%d.%m.') %>
+                      <% end %>
+                  </div>
                 </h4>
-                <div class="pull-right" style="position: absolute; top:0; right: 15px; height: 100%; display: flex; align-items: center">
-
-                    <% if cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
-                      <span style="font-size: 1.5em; line-height: 1.2;">
-                        <%= idea.down_votes.count %>
-                            <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                      </span>
-                      <span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;">
-                        <%= idea.up_votes.count %>
-                        <i class="glyphicon glyphicon-circle-arrow-up"></i>
-                      </span>
-                    <% else %>
-                      <p>
-                        <%= render 'votes/form', idea: idea %>
-                      </p>
-                    <% end %>
-
-                  Čas do konce: <%= idea.timeout_at %>
-                </div>
               </div>
             </a>
             <div id="collapse<%= idea.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= idea.id %>">
