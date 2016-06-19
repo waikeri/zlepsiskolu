@@ -27,8 +27,6 @@
                     <%= idea.title %>
                   </h4>
 
-                    <div class="pull-right" style="position: absolute; top:0; right: 15px; height: 100%; display: flex; align-items: center">
-
                       <% if cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
                         <span style="font-size: 1.5em; line-height: 1.2;">
                           <%= idea.down_votes.count %>
@@ -46,8 +44,7 @@
                       <% if idea.timeout_at.present? %>
                           &nbsp; do <%= idea.timeout_at.strftime('%d.%m.') %>
                       <% end %>
-                    </div>
-                  </h4>
+
                 </div>
               </a>
 
@@ -76,8 +73,8 @@
           <div class="panel panel-default <% cookies[:voted_ideas].split(',').include?(idea.id.to_s) ? "vote-disabled" : "" %>">
             <a role="button" data-toggle="collapse" data-target="#sent<%=  idea.id %>" href="#sent<%=  idea.id %>">
               <div class="panel-heading" role="tab" id="sentheading<%=  idea.id %>">
-                <h3 class="downvote"><%=  idea.down_votes %></h3>
-                <h3 class="upvote"><%=  idea.up_votes %></h3>
+                <h3 class="downvote"><%= idea.down_votes.count %></h3>
+                <h3 class="upvote"><%= idea.up_votes.count %></h3>
                 <h4 class="panel-title">
                   <%=  idea.title %>
                 </h4>
