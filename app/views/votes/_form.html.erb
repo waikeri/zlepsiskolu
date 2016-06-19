@@ -7,9 +7,8 @@
     </div>
 
     <span style="font-size: 1.5em; line-height: 1.2;" class="downvote">
-    <%= idea.down_votes.count %>
-      <i class="glyphicon glyphicon-circle-arrow-down"></i>
-  </span>
+      <i class="glyphicon glyphicon-thumbs-down"></i>
+    </span>
 <% end %>
 
 <%= simple_form_for([idea, idea.votes.new]) do |f| %>
@@ -21,7 +20,6 @@
     </div>
 
     <span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;" class="upvote">
-      <%= idea.up_votes.count %>
-      <i class="glyphicon glyphicon-circle-arrow-up"></i>
+      <i class="glyphicon glyphicon-thumbs-up"></i>
     </span>
 <% end %>
