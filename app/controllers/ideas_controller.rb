@@ -4,6 +4,7 @@ class IdeasController < ApplicationController
   def welcome
 
   end
+
   # GET /ideas
   # GET /ideas.json
   def index
@@ -37,7 +38,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to root_url, notice: 'Nové hlasování bylo vytvořeno.' }
+        format.html { redirect_to ideas_url, notice: 'Nové hlasování bylo vytvořeno.' }
       else
         format.html { render :new }
       end

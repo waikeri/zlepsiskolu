@@ -3,7 +3,7 @@ class VotesController < InheritedResources::Base
   def new
     if cookies[:voted_ideas].split(',').include?(params[:idea_id])
       respond_to do |format|
-        format.html { redirect_to root_url, alert: 'You have already voted.' }
+        format.html { redirect_to ideas_url, alert: 'You have already voted.' }
       end
     else
       @idea = find_idea
@@ -44,7 +44,7 @@ class VotesController < InheritedResources::Base
         else
           cookies[:voted_ideas] = cookies[:voted_ideas] + "," + @vote.idea.id.to_s
         end
-        format.html { redirect_to root_url, notice: 'Hlasovali jste pro návrh.' }
+        format.html { redirect_to ideas_url, notice: 'Hlasovali jste pro návrh.' }
       else
         format.html { render :new }
       end
