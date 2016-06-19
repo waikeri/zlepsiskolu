@@ -22,8 +22,8 @@
           </div>
         <% @past_ideas.each do |idea| %>
           <div class="item col-xs-12 ">
+            <h3>Škola řeší:</h3>
             <h3><%= idea.title %></h3>
-            <h4><%= idea.content %></h4>
           </div>
         <% end %>
       </div>
@@ -36,6 +36,7 @@
 <section id="voting">
   <div class="row">
     <div class="col-xs-12">
+      <h2>Lajkuj a ....</h2>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <% @ideas.each do |idea| %>
           <div class="panel panel-default vote-top">
