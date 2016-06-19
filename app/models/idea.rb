@@ -32,4 +32,9 @@ class Idea < ActiveRecord::Base
   def down_votes
     self.votes.where(state: false)
   end
+
+  def self.active
+    self.where('timeout_at > ?', Time.zone.now)
+  end
+
 end

@@ -8,7 +8,9 @@ class IdeasController < ApplicationController
     if cookies[:voted_ideas].nil?
       cookies[:voted_ideas] = ""
     end
-    @ideas = Idea.all
+    @ideas = Idea.active.all
+
+    @past_ideas = Idea.all - @ideas
   end
 
   # GET /ideas/1
