@@ -21,7 +21,7 @@ class Idea < ActiveRecord::Base
   after_create :timeout
 
   def timeout
-    self.timeout_at = now + 1.week
+    self.timeout_at = Time.zone.now + 1.week
     self.save
   end
 

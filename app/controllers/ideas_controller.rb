@@ -4,6 +4,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
+    @idea = Idea.new
     if cookies[:voted_ideas].nil?
       cookies[:voted_ideas] = ""
     end
@@ -31,11 +32,9 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
-        format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
-        format.json { render :show, status: :created, location: @idea }
+        format.html { redirect_to root_url, notice: 'Nové hlasování bylo vytvořeno.' }
       else
         format.html { render :new }
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
       end
     end
   end
