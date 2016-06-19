@@ -1,6 +1,9 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
+  def welcome
+
+  end
   # GET /ideas
   # GET /ideas.json
   def index

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :ideas do
     resources :votes
   end
-  root to: 'ideas#index'
+  root to: 'ideas#welcome'
 end
