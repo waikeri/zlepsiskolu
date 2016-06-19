@@ -33,4 +33,7 @@ $(document).ready(function () {
         e.stopPropagation();
         $(this).find('form').submit();
     });
+    if($('#intro').length){
+        $('.navbar.navbar-default').remove();
+    }
 });
