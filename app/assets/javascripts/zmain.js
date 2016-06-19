@@ -28,4 +28,10 @@ $(document).ready(function () {
         owl.trigger('prev.owl.carousel');
     })
     $('.owl-carousel .item h4').fontFlex(18, 36, 50);
+
+    $('#voting .panel .upvote, #voting .panel .downvote').click(function(e){
+        e.stopPropagation();
+        $(this).closest('form').submit();
+    });
 });
+

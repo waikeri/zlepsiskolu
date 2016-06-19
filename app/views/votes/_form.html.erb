@@ -1,36 +1,27 @@
-
-  <%= simple_form_for([idea, idea.votes.new]) do |f| %>
+<%= simple_form_for([idea, idea.votes.new]) do |f| %>
     <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.hidden_field :idea_id %>
-        <%= f.hidden_field :state, value: true %>
-      </div>
-
-
-    <%= button_tag :submit do %>
-      <span style="font-size: 1.5em; line-height: 1.2;">
-        <%= idea.down_votes.count %>
-        <i class="glyphicon glyphicon-circle-arrow-down"></i>
-      </span>
-    <% end %>
-  <% end %>
-
-
-<span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;">
-  <%= idea.up_votes.count %>
-
-  <%= simple_form_for([idea, idea.votes.new]) do |f| %>
-    <%= f.error_notification %>
-
-      <div class="form-inputs">
-        <%= f.hidden_field :idea_id %>
-        <%= f.hidden_field :state, value: false %>
-      </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "DOWNVOTE" %>
-      <i class="glyphicon glyphicon-circle-arrow-up"></i>
+    <div class="form-inputs">
+      <%= f.hidden_field :idea_id %>
+      <%= f.hidden_field :state, value: false %>
     </div>
-  <% end %>
-</span>
+
+    <span style="font-size: 1.5em; line-height: 1.2;" class="downvote">
+    <%= idea.down_votes.count %>
+      <i class="glyphicon glyphicon-circle-arrow-down"></i>
+  </span>
+<% end %>
+
+<%= simple_form_for([idea, idea.votes.new]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.hidden_field :idea_id %>
+      <%= f.hidden_field :state, value: true %>
+    </div>
+
+    <span style="font-size: 1.5em; line-height: 1.2;margin-left: 10px;" class="upvote">
+      <%= idea.up_votes.count %>
+      <i class="glyphicon glyphicon-circle-arrow-up"></i>
+    </span>
+<% end %>
