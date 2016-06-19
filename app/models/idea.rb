@@ -18,6 +18,13 @@ class Idea < ActiveRecord::Base
 
   has_many :votes
 
+  after_create :timeout
+
+  def timeout
+    self.timeout_at = now + 1.week
+    self.save
+  end
+
   def up_votes
     self.votes.where(state: true)
   end

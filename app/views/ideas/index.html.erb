@@ -44,11 +44,14 @@
             <div class="panel-heading" role="tab" id="heading<%= idea.id %>">
               <h2 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= idea.id %>" aria-expanded="true" aria-controls="collapseTwo">
-                  <%= idea.title %>
-                  UP:
-                  <%= idea.up_votes.count %>
-                  DOWN:
-                  <%= idea.down_votes.count %>
+                    <%= idea.title %>
+                    <div class="pull-right">
+                      UP:
+                      <%= idea.up_votes.count %>
+                      DOWN:
+                      <%= idea.down_votes.count %>
+                      Čas do konce: <%= idea.timeout_at %>
+                    </div>
                 </a>
               </h2>
             </div>
