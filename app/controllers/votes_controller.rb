@@ -44,7 +44,7 @@ class VotesController < InheritedResources::Base
         else
           cookies[:voted_ideas] = cookies[:voted_ideas] + "," + @vote.idea.id.to_s
         end
-        format.html { redirect_to root_url, notice: 'vote was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Hlasovali jste pro návrh.' }
       else
         format.html { render :new }
       end
