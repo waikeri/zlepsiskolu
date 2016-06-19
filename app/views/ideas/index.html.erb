@@ -25,30 +25,12 @@
                     <h3 class="downvote"><%= idea.down_votes.count %></h3>
                     <h3 class="upvote"><%= idea.up_votes.count %></h3>
                   <% else %>
-                      <p>
-                        <%= render 'votes/form', idea: idea %>
-                      </p>
-                      <i class="glyphicon glyphicon-thumbs-down"></i>
+                    <%= render 'votes/form', idea: idea %>
                   <% end %>
+
                   <h4 class="panel-title">
                     <%= idea.title %>
                   </h4>
-
-                      <% if cookies[:voted_ideas].split(',').include?(idea.id.to_s) %>
-                        <span style="font-size: 1.5em; line-height: 1.2;">
-                          <%= idea.down_votes.count %>
-                          <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                        </span>
-                        <span style="font-size: 1.3em; line-height: 1.1;margin-left: 10px;">
-                          <%= idea.up_votes.count %>
-                          <i class="glyphicon glyphicon-circle-arrow-up"></i>
-                        </span>
-                      <% else %>
-                          <p>
-                            <%= render 'votes/form', idea: idea %>
-                          </p>
-                      <% end %>
-
                 </div>
               </a>
 
@@ -61,9 +43,7 @@
             </div>
         <% end %>
       </div>
-
   </div>
-
 
   <div class="row">
     <div style="padding: 10px 35px 10px 35px;">
