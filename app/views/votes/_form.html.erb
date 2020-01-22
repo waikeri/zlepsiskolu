@@ -1,0 +1,30 @@
+<h3 class="downvote">
+  <%= simple_form_for([idea, idea.votes.new]) do |f| %>
+
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.hidden_field :idea_id %>
+      <%= f.hidden_field :state, value: false %>
+    </div>
+
+      <i class="glyphicon glyphicon-thumbs-down"></i>
+<% end %>
+
+</h3>
+
+<h3 class="upvote">
+
+<%= simple_form_for([idea, idea.votes.new]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.hidden_field :idea_id %>
+      <%= f.hidden_field :state, value: true %>
+    </div>
+
+
+      <i class="glyphicon glyphicon-thumbs-up"></i>
+
+<% end %>
+</h3>

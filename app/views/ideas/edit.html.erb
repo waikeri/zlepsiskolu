@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-8">
+
+      <h1>Editing Idea</h1>
+
+      <%= render 'form' %>
+
+      <%= link_to 'Show', @idea %> |
+      <%= link_to 'Back', ideas_path %>
+      <%= link_to 'Votes', idea_votes_path(@idea) %>
+    </div>
+  </div>
+</div>
